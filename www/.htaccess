@@ -1,0 +1,23 @@
+AuthType Basic
+AuthName "Private zone. Only for administrator!"
+require user admin
+#admin: 2016
+
+##### Internet #####
+#AuthUserFile /home/c/cu96230/public_html/.htpasswd
+
+##### Local Windows OS #####
+#AuthUserFile G:/OpenServer/domains/flora-crm.loc/www/.htpasswd
+
+##### Local Mac OS #####
+AuthUserFile /Users/fedorovau/Projects/floracrm.lc/www/.htpasswd
+
+RewriteEngine on
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php
+AddDefaultCharset utf-8
+AddType 'text/html; charset=utf-8' .html .htm .shtml
